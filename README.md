@@ -6,7 +6,7 @@
 | --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Appearance                  | 1995                                        | 1995                                          |
 | Original Author             | Yukihiro Matsumoto                          | Brendan Eich                                  |
-| Some Influences             | Lisp, Smalltalk, Perl                       | Scheme, Self, Java, Perl                      |
+| Some Influences             | Lisp, Smalltalk, Perl                       | Scheme (a dialect of Lisp), Self (decends from Smalltalk), Java, Perl |
 | Paradigms                   | Object-Oriented, Functional, Imperative     | Object-Oriented, Functional, Imperative       |
 | Type Disipline              | Dynamic, Strong                             | Dynamic, Weak                                 |
 | Type Hierarchy              | Every value is decendent from a single type `Object` or `BasicObject` after Ruby 1.9. | Similar to Java has 5 primitive types: `number`, `boolean`, `string`, `null`, `undefined`, and one extension type: `Object`. ES6 adds `symbol` and `bigint`. All other types decend from `Object`. |
