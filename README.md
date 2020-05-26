@@ -67,16 +67,18 @@
         required when the clause is associated with
         more than one statement, but this is a
         feature that requires some caution, because:
-        <pre>if (x < 0)
+        <code>
+        if (x < 0)
             console.log('Negative');
             console.log('Less than zero');
-        </pre>
+        </code>
         is not the same thing as
-        <pre>if (x < 0) {
+        <code>
+        if (x < 0) {
             console.log('Negative');
             console.log('Less than zero');
         }
-        </pre>
+        </code>
       </td>
     </tr>
   </tbody>
