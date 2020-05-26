@@ -18,12 +18,31 @@
 
 ## Syntax
 
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Ruby</th>
+      <th>JavaScript</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Statements / Expressions</td>
+      <td>Like Lisp Ruby is expression oriented, i.e.
+      everything returns a value including
+      language primitives like `if` and `case`.</td>
+      <td>Like C, Java and Perl JavaScript makes a
+      distinction between language statments like
+      `if` and `switch` and expressions like `2 + 3`.</td>
+    </tr>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+
 |                             | Ruby                                        | JavaScript                                    |
 | --------------------------- | ------------------------------------------- | --------------------------------------------- |
-| Statements / Expressions    | Like Lisp Ruby is expression oriented, i.e. | Like C, Java and Perl JavaScript makes a      |
-|                             | everything returns a value including        | distinction between language statments like   |
-|                             | language primitives like `if` and `case`.   | `if` and `switch` and expressions like        |
-|                             |                                             | `2 + 3`.                                      |
 | Conditionals                | ```ruby                                     | ```javascript                                 |
 |                             | if x < 0                                    | if (x < 0) {                                  |
 |                             |   puts 'Negative'                           |    console.log('Negative');                   |
