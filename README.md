@@ -49,7 +49,7 @@
         puts 'Zero'
       end
       </pre></td>
-      <td><pre class="code javascript">
+      <td><pre class="code javascript highlight js-syntax-highlight">
       if (x < 0) {
           console.log('Negative');
       }
