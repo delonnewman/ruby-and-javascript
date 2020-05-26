@@ -22,63 +22,63 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Statements / Expressions</td>
-      <td>Like Lisp Ruby is expression oriented, i.e.
-      everything returns a value including
-      language primitives like <code>if</code> and
-      <code>case</code>.</td>
-      <td>Like C, Java and Perl JavaScript makes a
-      distinction between language statments like
-      <code>if</code> and <code>switch</code> and
-      expressions like <code>2 + 3</code>.</td>
-    </tr>
-    <tr>
-      <td>Conditionals</td>
-      <td>
-        <pre>
-        if x < 0
-          puts 'Negative'
-        elsif x > 0
-          puts 'Positive'
-        else
-          puts 'Zero'
-        end
-        </pre>
-        Like Perl Ruby also supports conditionals
-        as binary operators, e.g.:
-        <pre>
-        puts 'Negative' if x < 0
-        </pre>
-      </td>
-      <td>
-        <pre>
-        if (x < 0) {
-            console.log('Negative');
-        }
-        else if (x > 0) {
-            console.log('Positive');
-        }
-        else {
-            console.log('Zero');
-        }
-        </pre>
-        Like C and Java curly braces are only
-        required when the clause is associated with
-        more than one statement, but this is a
-        feature that requires some caution, because:
+<tr>
+  <td>Statements / Expressions</td>
+  <td>Like Lisp Ruby is expression oriented, i.e.
+  everything returns a value including
+  language primitives like <code>if</code> and
+  <code>case</code>.</td>
+  <td>Like C, Java and Perl JavaScript makes a
+  distinction between language statments like
+  <code>if</code> and <code>switch</code> and
+  expressions like <code>2 + 3</code>.</td>
+</tr>
+<tr>
+  <td>Conditionals</td>
+  <td>
+<pre><code>
+if x < 0
+  puts 'Negative'
+elsif x > 0
+  puts 'Positive'
+else
+  puts 'Zero'
+end
+</code></pre>
+Like Perl Ruby also supports conditionals
+as binary operators, e.g.:
+<pre><code>
+puts 'Negative' if x < 0
+</code></pre>
+</td>
+<td>
+<pre><code>
+if (x < 0) {
+    console.log('Negative');
+}
+else if (x > 0) {
+    console.log('Positive');
+}
+else {
+    console.log('Zero');
+}
+</code></pre>
+Like C and Java curly braces are only
+required when the clause is associated with
+more than one statement, but this is a
+feature that requires some caution, because:
 <pre><code>if (x < 0)
     console.log('Negative');
     console.log('Less than zero');
 </code></pre>
-        is not the same thing as
+is not the same thing as
 <pre><code>if (x < 0) {
     console.log('Negative');
     console.log('Less than zero');
 }</code></pre>
-      </td>
-    </tr>
-  </tbody>
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Operators
