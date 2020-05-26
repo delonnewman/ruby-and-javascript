@@ -73,12 +73,12 @@
             console.log('Less than zero');
         </code>
         is not the same thing as
-        <code>
-        if (x < 0) {
-            console.log('Negative');
-            console.log('Less than zero');
-        }
-        </code>
+<pre><code>
+if (x < 0) {
+    console.log('Negative');
+    console.log('Less than zero');
+}
+</code></pre>
       </td>
     </tr>
   </tbody>
