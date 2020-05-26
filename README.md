@@ -6,10 +6,10 @@
 | --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Appearance                  | 1995                                        | 1995                                          |
 | Original Author             | Yukihiro Matsumoto                          | Brendan Eich                                  |
-| Some Influences             | Scheme, Smalltalk, Perl                     | Scheme, Self, Java, Perl                      |
+| Some Influences             | Lisp, Smalltalk, Perl                       | Scheme, Self, Java, Perl                      |
 | Paradigms                   | Object-Oriented, Functional, Imperative     | Object-Oriented, Functional, Imperative       |
 | Type Disipline              | Dynamic, Strong                             | Dynamic, Weak                                 |
-| Type Hierarchy              | Every value is decendent from a single type `Object` or `BasicObject` after Ruby 1.9. | In contrast JavaScript, similar to Java has 5 primitive types: `number`, `boolean`, `string`, `null`, `undefined`, and one extension type: `Object`. ES6 adds `symbol` and `bigint`. All other types decend from `Object`. |
+| Type Hierarchy              | Every value is decendent from a single type `Object` or `BasicObject` after Ruby 1.9. | Similar to Java has 5 primitive types: `number`, `boolean`, `string`, `null`, `undefined`, and one extension type: `Object`. ES6 adds `symbol` and `bigint`. All other types decend from `Object`. |
 
 ## Syntax
 
@@ -35,59 +35,54 @@
     </tr>
     <tr>
       <td>Conditionals</td>
-      <td><pre class="code ruby">
-      if x < 0
-        puts 'Negative'
-      elsif x > 0
-        puts 'Positive'
-      else
-        puts 'Zero'
-      end
-      </pre></td>
-      <td><pre class="code javascript js-syntax-highlight">
-      if (x < 0) {
-          console.log('Negative');
-      }
-      else if (x > 0) {
-          console.log('Positive');
-      }
-      else {
-          console.log('Zero');
-      }
-      </pre></td>
+      <td>
+        <pre>
+        if x < 0
+          puts 'Negative'
+        elsif x > 0
+          puts 'Positive'
+        else
+          puts 'Zero'
+        end
+        </pre>
+        Like Perl Ruby also supports conditionals
+        as binary operators, e.g.:
+        <pre>
+        puts 'Negative' if x < 0
+        </pre>
+      </td>
+      <td>
+        <pre>
+        if (x < 0) {
+            console.log('Negative');
+        }
+        else if (x > 0) {
+            console.log('Positive');
+        }
+        else {
+            console.log('Zero');
+        }
+        </pre>
+        Like C and Java curly braces are only
+        required when the clause is associated with
+        more than one statement, but this is a
+        feature that requires some caution, because:
+        <pre>
+        if (x < 0)
+            console.log('Negative');
+            console.log('Less than zero');
+        </pre>
+        is not the same thing as
+        <pre>
+        if (x < 0) {
+            console.log('Negative');
+            console.log('Less than zero');
+        }
+        </pre>
+      </td>
     </tr>
   </tbody>
 </table>
-
-|                             | Ruby                                        | JavaScript                                    |
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
-| Conditionals                | ```ruby                                     | ```javascript                                 |
-|                             | if x < 0                                    | if (x < 0) {                                  |
-|                             |   puts 'Negative'                           |    console.log('Negative');                   |
-|                             | elsif x > 0                                 | }                                             |
-|                             |   puts 'Positive'                           | else if (x > 0) {                             |
-|                             | else                                        |    console.log('Positive');                   |
-|                             |   puts 'Zero'                               | }                                             |
-|                             | end                                         | else {                                        |
-|                             | ```                                         |    console.log('Zero');                       |
-|                             | Like Perl Ruby also support conditionals    | }                                             |
-|                             | as binary operators, e.g.:                  | ```                                           |
-|                             | ```ruby                                     | Like C and Java curly braces are only         |
-|                             | puts 'Negative' if x < 0                    | required when the clause is associated with   |
-|                             | ```                                         | more than one statement, but this is a        |
-|                             |                                             | feature that requires some caution, because:  |
-|                             |                                             | ```javascript                                 |
-|                             |                                             | if (x < 0)                                    |
-|                             |                                             |    console.log('Negative');                   |
-|                             |                                             |    console.log('Less than zero');             |
-|                             |                                             | ```                                           |
-|                             |                                             | is not the same thing as                      |
-|                             |                                             | ```javascript                                 |
-|                             |                                             | if (x < 0) {                                  |
-|                             |                                             |    console.log('Negative');                   |
-|                             |                                             |    console.log('Less than zero');             |
-|                             |                                             | }                                             |
-|                             |                                             | ```                                           |
 
 ## Operators
 
