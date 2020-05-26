@@ -49,7 +49,7 @@
         puts 'Zero'
       end
       </pre></td>
-      <td><pre class="code javascript highlight js-syntax-highlight">
+      <td><pre class="code javascript js-syntax-highlight">
       if (x < 0) {
           console.log('Negative');
       }
@@ -59,6 +59,7 @@
       else {
           console.log('Zero');
       }
+      </pre></td>
     </tr>
   </tbody>
 </table>
