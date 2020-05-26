@@ -5,16 +5,16 @@
 |                             | Ruby                                        | JavaScript                                    |
 | --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Appearance                  | 1995                                        | 1995                                          |
-| Motivations                 | 
+| Original Author             | Yukihiro Matsumoto                          | Brendan Eich                                  |
 | Some Influences             | Scheme, Smalltalk, Perl                     | Scheme, Self, Java, Perl                      |
+| Paradigms                   | Object-Oriented, Functional, Imperative     | Object-Oriented, Functional, Imperative       |
 | Type Disipline              | Dynamic, Strong                             | Dynamic, Weak                                 |
 | Type Hierarchy              | Every value is decendent from a single type | In contrast JavaScript, similar to Java       |
-|                             | `Object` or `BasicObject` after Ruby 1.9.   | has 5 primitive types: `number`, `boolean`,   |
-|                             |                                             | `string`, `null`, `undefined`, and one        |
-|                             |                                             | extension type: `Object`. ES6 adds `symbol`   |
-|                             |                                             | and `bigint`. All other types decend from     |
-|                             |                                             | `Object`.                                     |
-| Paradigms                   | Object-Oriented, Functional, Imperative     | Object-Oriented, Functional, Imperative       |
+                                `Object` or `BasicObject` after Ruby 1.9.     has 5 primitive types: `number`, `boolean`,
+                                                                              `string`, `null`, `undefined`, and one
+                                                                              extension type: `Object`. ES6 adds `symbol`
+                                                                              and `bigint`. All other types decend from
+                                                                              `Object`.
 
 ## Syntax
 
@@ -105,3 +105,7 @@
 ## Concurrent Programming
 
 ## Core Types
+
+## References
+
+- https://brendaneich.com/2008/04/popularity/
