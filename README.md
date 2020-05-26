@@ -36,8 +36,7 @@
 <tr>
   <td>Conditionals</td>
   <td>
-<pre><code>
-if x < 0
+<pre><code>if x < 0
   puts 'Negative'
 elsif x > 0
   puts 'Positive'
@@ -47,13 +46,10 @@ end
 </code></pre>
 Like Perl Ruby also supports conditionals
 as binary operators, e.g.:
-<pre><code>
-puts 'Negative' if x < 0
-</code></pre>
+<pre><code>puts 'Negative' if x < 0</code></pre>
 </td>
 <td>
-<pre><code>
-if (x < 0) {
+<pre><code>if (x < 0) {
     console.log('Negative');
 }
 else if (x > 0) {
