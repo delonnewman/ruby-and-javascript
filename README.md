@@ -31,12 +31,34 @@
       <td>Statements / Expressions</td>
       <td>Like Lisp Ruby is expression oriented, i.e.
       everything returns a value including
-      language primitives like `if` and `case`.</td>
+      language primitives like <code>if</code> and
+      <code>case</code>.</td>
       <td>Like C, Java and Perl JavaScript makes a
       distinction between language statments like
-      `if` and `switch` and expressions like `2 + 3`.</td>
+      <code>if</code> and <code>switch</code> and
+      expressions like <code>2 + 3</code>.</td>
     </tr>
     <tr>
+      <td>Conditionals</td>
+      <td><pre class="code ruby">
+      if x < 0
+        puts 'Negative'
+      elsif x > 0
+        puts 'Positive'
+      else
+        puts 'Zero'
+      end
+      </pre></td>
+      <td><pre class="code javascript">
+      if (x < 0) {
+          console.log('Negative');
+      }
+      else if (x > 0) {
+          console.log('Positive');
+      }
+      else {
+          console.log('Zero');
+      }
     </tr>
   </tbody>
 </table>
