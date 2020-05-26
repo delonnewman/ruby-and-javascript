@@ -15,7 +15,6 @@
 |                             |                                             | and `bigint`. All other types decend from     |
 |                             |                                             | `Object`.                                     |
 | Paradigms                   | Object-Oriented, Functional, Imperative     | Object-Oriented, Functional, Imperative       |
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
 
 ## Syntax
 
@@ -52,7 +51,6 @@
 |                             |                                             |    console.log('Less than zero');             |
 |                             |                                             | }                                             |
 |                             |                                             | ```                                           |
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
 
 ## Operators
 
