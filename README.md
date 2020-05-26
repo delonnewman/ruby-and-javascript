@@ -5,20 +5,15 @@
 |                             | Ruby                                        | JavaScript                                    |
 | --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Appearance                  | 1995                                        | 1995                                          |
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Motivations                 | 
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Some Influences             | Scheme, Smalltalk, Perl                     | Scheme, Self, Java, Perl                      |
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Type Disipline              | Dynamic, Strong                             | Dynamic, Weak                                 |
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Type Hierarchy              | Every value is decendent from a single type | In contrast JavaScript, similar to Java       |
 |                             | `Object` or `BasicObject` after Ruby 1.9.   | has 5 primitive types: `number`, `boolean`,   |
 |                             |                                             | `string`, `null`, `undefined`, and one        |
 |                             |                                             | extension type: `Object`. ES6 adds `symbol`   |
 |                             |                                             | and `bigint`. All other types decend from     |
 |                             |                                             | `Object`.                                     |
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Paradigms                   | Object-Oriented, Functional, Imperative     | Object-Oriented, Functional, Imperative       |
 | --------------------------- | ------------------------------------------- | --------------------------------------------- |
 
@@ -30,7 +25,6 @@
 |                             | everything returns a value including        | distinction between language statments like   |
 |                             | language primitives like `if` and `case`.   | `if` and `switch` and expressions like        |
 |                             |                                             | `2 + 3`.                                      |
-| --------------------------- | ------------------------------------------- | --------------------------------------------- |
 | Conditionals                | ```ruby                                     | ```javascript                                 |
 |                             | if x < 0                                    | if (x < 0) {                                  |
 |                             |   puts 'Negative'                           |    console.log('Negative');                   |
