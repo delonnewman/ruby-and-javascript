@@ -49,6 +49,28 @@ after a statement, e.g.:
 <pre><code>puts 'Negative' if x < 0</code></pre>
 In this case, "Negative" will be printed to the
 screen if <code>x</code> is less than zero.</p>
+<p>Also, <code>if</code> expressions evaluate
+to the last expression that has been evaluated.
+So
+<pre><code>def polarity(x)
+  if x < 0
+    'Negative'
+  elsif x > 0
+    'Positive'
+  else
+    'Zero'
+  end
+end</code></pre>
+is the same as
+<pre><code>def polarity(x)
+  if x < 0
+    return 'Negative'
+  elsif x > 0
+    return 'Positive'
+  else
+    return 'Zero'
+  end
+end</code></pre></p>
 </td>
 <td>
 <pre><code>if (x < 0) {
