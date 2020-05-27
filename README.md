@@ -9,7 +9,7 @@
 | Some Influences             | Scheme, Smalltalk, Perl, C                  | Scheme, Self (decends from Smalltalk), Java, Perl |
 | Paradigms                   | Object-Oriented, Functional, Imperative     | Object-Oriented, Functional, Imperative       |
 | Type Disipline              | Dynamic, Strong                             | Dynamic, Weak                                 |
-| Type Hierarchy              | Every value is decendent from a single type `Object` or `BasicObject` after Ruby 1.9. | Similar to Java JavaScript has 5 primitive types: `number`, `boolean`, `string`, `null`, `undefined`, and one extension type: `Object`. ES6 adds `symbol` and `bigint`. All other types decend from `Object`. |
+| Type Hierarchy              | Like Smalltalk every value is decendent from a single type `Object` or `BasicObject` after Ruby 1.9. | Similar to Java JavaScript has 5 primitive types: `number`, `boolean`, `string`, `null`, `undefined`, and one extension type: `Object`. ES6 adds `symbol` and `bigint`. All other types decend from `Object`. |
 
 ## Syntax
 
