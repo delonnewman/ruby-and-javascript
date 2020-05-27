@@ -34,6 +34,20 @@
   expressions like <code>2 + 3</code>.</td>
 </tr>
 <tr>
+  <td>Let's talk about nothing</td>
+  <td>`nil` is a singleton instance of `NilClass`</td>
+  <td>As in some Scheme implementations `null` and `undefined`
+  are two primitive types that in someways represent nothing.
+  When a function has no return value it returns `undefined`,
+  when an object lacks a key it returns `undefined`. `null` is
+  used in much the same way as `nil` in Ruby.</td>
+  <td>Boolean</td>
+  <td>`true` is a singleton instance of `TrueClass`
+  and `false` is a singleton instance of `FalseClass`</td>
+  <td>`true` and `false` are the two instances of the primitive
+  type `boolean`</td>
+</tr>
+<tr>
   <td>Conditionals</td>
   <td>
 <pre><code>if x < 0
@@ -119,6 +133,22 @@ is not the same thing as
 </table>
 
 ## Operators
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Ruby</th>
+      <th>JavaScript</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+
+## Collections
 
 ## Object Oriented Programming
 
