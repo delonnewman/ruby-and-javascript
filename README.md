@@ -52,6 +52,17 @@ screen if <code>x</code> is less than zero.</p>
 <p>Also, <code>if</code> expressions evaluate
 to the last expression that has been evaluated.
 So
+<pre><code>polarity = if x < 0
+             'Negative'
+           elsif x > 0
+             'Positive'
+           else
+             'Zero'
+           end
+
+puts polarity</code></pre>
+will yield the same results as the first example.</p>
+<p>And
 <pre><code>def polarity(x)
   if x < 0
     'Negative'
@@ -70,18 +81,7 @@ is the same as
   else
     return 'Zero'
   end
-end</code></pre>
-and
-<pre><code>polarity = if x < 0
-             'Negative'
-           elsif x > 0
-             'Positive'
-           else
-             'Zero'
-           end
-
-puts polarity</code></pre>
-would give the same results as the first example.</p>
+end</code></pre></p>
 </td>
 <td>
 <pre><code>if (x < 0) {
