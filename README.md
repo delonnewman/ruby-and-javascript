@@ -41,6 +41,8 @@
   When a function has no return value it returns `undefined`,
   when an object lacks a key it returns `undefined`. `null` is
   used in much the same way as `nil` in Ruby.</td>
+</tr>
+<tr>
   <td>Boolean</td>
   <td>`true` is a singleton instance of `TrueClass`
   and `false` is a singleton instance of `FalseClass`</td>
