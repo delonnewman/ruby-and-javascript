@@ -79,6 +79,7 @@ and
            else
              'Zero'
            end
+
 puts polarity</code></pre>
 would give the same results as the first example.</p>
 </td>
