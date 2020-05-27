@@ -52,7 +52,7 @@
 <tr>
   <td>Falsy</td>
   <td>Only <code>false</code> and <code>nil</code> are considered "false" in boolean contexts (e.g. conditional statements), anything else is considered "true".</td>
-  <td><code>false</code>, <code>null</code>, <code>undefined</code>, <code>0</code>, <code>''</code>, <code>'0'</code>, and <code>NaN</code>,
+  <td><code>false</code>, <code>null</code>, <code>undefined</code>, <code>0</code>, <code>''</code>, and <code>NaN</code>,
   are all considered "false" in boolean contexts, anything else is considered "true".</td>
 <tr>
   <td>Numbers</td>
