@@ -50,6 +50,12 @@
   type <code>boolean</code></td>
 </tr>
 <tr>
+  <td>Falsy</td>
+  <td>Only <code>false</code> and <code>nil</code> are considered "false" in boolean contexts (e.g. conditional statements).</td>
+  <td><code>false</code>, <code>null</code>, <code>undefined</code>, <code>0</code>, <code>''</code>, <code>'0'</code>, are
+  all considered "false" in boolean contexts.</td>
+  <td></td>
+<tr>
   <td>Numbers</td>
   <td>All numeric types are subclasses of <code>Numeric</code>. These types include:
   <code>Integer</code>, <code>Float</code>, and <code>Rational</code>.</td>
