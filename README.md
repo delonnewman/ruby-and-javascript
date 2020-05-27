@@ -27,10 +27,10 @@
   <td>Like Scheme Ruby is expression oriented, i.e.
   everything returns a value including
   language primitives like <code>if</code> and
-  <code>case</code>.</td>
+  <code>for</code>.</td>
   <td>Like Java and C JavaScript makes a
   distinction between language statments like
-  <code>if</code> and <code>switch</code> and
+  <code>if</code> and <code>for</code> and
   expressions like <code>2 + 3</code>.</td>
 </tr>
 <tr>
