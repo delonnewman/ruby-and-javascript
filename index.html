@@ -55,12 +55,13 @@ layout: default
   <tbody>
     <tr>
       <th>Standardization</th>
-      <td>While there is an ISO standard for Ruby, MRI (whose development is lead by Matz) is generally regarded as the reference implementation</td>
+      <td>While there is an ISO standard for Ruby, MRI (whose development is lead by Matz) is generally regarded as the reference implementation.</td>
       <td>ECMAScript</td>
     </tr>
     <tr>
       <th>Implementations</th>
-      <td>MRI, MRuby, JRuby, RubyMotion, TruffuleRuby, there are several more that are not in wide use.</td>
+      <td>MRI, MRuby, JRuby, DragonRuby, Opal, TruffuleRuby, ArtichokeRuby (see <a target="awesome-rubies" href="https://github.com/planetruby/awesome-rubies">Awesome Rubies</a>
+      for more).</td>
       <td>V8, SpiderMonkey, JavaScriptCore, Rhino, Chakra, many more in whole or in part.</td>
     </tr>
     <tr>
@@ -136,12 +137,41 @@ layout: default
       <td></td>
     </tr>
     <tr>
+      <th scope="row">Array Literals</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Hash Literals</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Object Literals</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <th scope="row">Operators</th>
       <td>Operators (e.g. <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>) are syntactic sugar for methods. As such, their behavior
       can be defined and redefined on a per-class basis (see <a href="#object-oriented-programming">Object-Oriented Programming</a>,
       <a href="#operator-comparision">Operator Comparison</a>).</td>
-      <td>Operators are predefined and cannot be changed or defined for new objects.</td>
+      <td>Operators are predefined and cannot be changed or defined for new objects (see <a href="#operator-comparision">Operator Comparison</a>).</td>
     </tr>
+  </tbody>
+</table>
+
+<h2 id="control-flow">Control Flow</h2>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" class="col-2"></th>
+      <th scope="col" class="col-5">Ruby</th>
+      <th scope="col" class="col-5">JavaScript</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <th scope="row">Statements vs. Expressions</th>
       <td>Like Scheme, Ruby is expression oriented, i.e. everything returns a value including language primitives like <code>if</code> and
@@ -150,8 +180,64 @@ layout: default
         expressions like <code>2 + 3</code> or <code>3 + 4 == 7</code>.</td>
     </tr>
     <tr>
-      <th scope="row">Conditionals</th>
+      <th scope="row">Functions / Methods</th>
       <td>
+        <pre><code>
+        def add1(x)
+          x + 1
+        end
+        </code></pre>
+        <p>Since most everything in Ruby is an object or a method (see <a href="object-oriented-programming">Object Oriented Programming</a>). What are sometimes called "functions" are
+        really methods (i.e. "functions" that belong to a class). If you define a method outside of a class or module (for example in a short script) it gets added to <code>Object</code>.</p>
+        <p>Like everything else in Ruby, method definitions are expressions, they evaluate to to their name as a symbol so the method above will evaluate to <code>:add1</code>.</p>
+        <p>Ruby also has at least one other type that can be used to model functions (see <a href="object-oriented-programming">Functional Programming</a>).</p>
+        <p>When called a method returns the value of the last expression that has been evaluated, so <code>return</code> is only required if you want to terminate execution early.
+        Which means that this:</p>
+        <pre><code>
+        def add1(x)
+          return x + 1
+        end
+        </code></pre>
+        <p>is the same as the first example, but this:</p>
+        <pre><code>
+        def add1(x)
+          return nil if x.nil?
+
+          x + 1
+        end
+        </code></pre>
+        <p>is not.</p>
+      </td>
+      <td>
+        <pre><code>
+        function add1(x) {
+            return x + 1;
+        }
+        </code></pre>
+        <p>Generally functions are statements (i.e. they don't evaluate to any value), but under certain circumstances they are evaluated as expressions. The rules are complex
+        so will just cover two cases that are generally useful to know.</p>
+        <p>Functions are expressions when they are part of an assignment expression.</p>
+        <pre><code>
+        var add1 = function(x) {
+            return x + 1;
+        };
+        </code></pre>
+        <p>Note the semicolon at the end of the expression is required.</p>
+        <p>Functions are also expressions when they are a part of an object expression.</p>
+        <pre><code>
+        var Numeric = {
+            add1: function(x) { return x + 1; },
+            sub1: function(x) { return 1 - x; }
+        };
+        </code></pre>
+        <p>When evaluated, as an expression a <code>Function</code> object is returned (see <a href="#object-oriented-programming">Object Oriented Programming</a>,
+        <a href="#functional-programming">Functional Programming</a>).</p>
+        <p>When called, the function will return the value given by the first <code>return</code> statement that is executed or <code>undefined</code> if nothing is returned.
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Conditionals</th>
+      <td class="overflow-auto">
         <!-- Ruby Conditionals -->
         <pre><code>
         if x &lt; 0
@@ -162,11 +248,20 @@ layout: default
           puts 'Zero'
         end
         </code></pre>
-        <p>Like Perl Ruby also supports conditionals
-        after a statement, e.g.:</p>
+        <p>Like Perl, Ruby also supports conditionals appended after a statement, e.g.:</p>
         <pre><code>puts 'Negative' if x &lt; 0</code></pre>
         <p>In this case, "Negative" will be printed to the screen if <code>x</code> is less than zero.</p>
-        <p>Also, <code>if</code> expressions evaluate to the last expression that has been evaluated. So</p>
+        <p>Also like Perl, Ruby supports a negated conditional statement <code>unless</code>.</p>
+        <pre><code>
+        unless x &lt; 0
+          puts 'Positive'
+        end
+        </code></pre>
+        <p>or</p>
+        <pre><code>
+        puts 'Positive' unless x &lt; 0
+        </code></pre>
+        <p>Conditional expressions evaluate to the last expression that has been evaluated. So</p>
         <pre><code>
         polarity = if x &lt; 0
                      'Negative'
@@ -178,29 +273,20 @@ layout: default
         
         puts polarity</code></pre>
         <p>will yield the same results as the first example.</p>
-        <p>And</p>
+        <p>Ruby also supports an optional <code>then</code> keyword:</p>
         <pre><code>
-        def polarity(x)
-          if x &lt; 0
-            'Negative'
-          elsif x &gt; 0
-            'Positive'
-          else
-            'Zero'
-          end
+        if x &lt; 0 then
+          'Negative'
+        elsif x &gt; 0
+          'Positive'
+        else
+          'Zero'
         end
         </code></pre>
-        <p>is the same as</p>
+        <p>This can be useful for inline conditionals:</p>
         <pre><code>
-        def polarity(x)
-          if x &lt; 0
-            return 'Negative'
-          elsif x &gt; 0
-            return 'Positive'
-          else
-            return 'Zero'
-          end
-        end
+        polarity = if x &lt; 0 then 'Negative' else 'Positive' end
+        puts polarity
         </code></pre>
       </td>
       <td>
@@ -243,7 +329,17 @@ layout: default
       <td></td>
     </tr>
     <tr>
-      <th scope="row">Loops</th>
+      <th scope="row">For</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">While</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Do / While</th>
       <td></td>
       <td></td>
     </tr>
@@ -252,8 +348,42 @@ layout: default
       <td></td>
       <td></td>
     </tr>
+  </tbody>
+</table>
+
+<h2 id="variable-scope">Variable Scope</h2>
+
+<table class="table">
+  <thead class="thead-light">
     <tr>
-      <th scope="row">Functions</th>
+      <th scope="col" class="col-2"></th>
+      <th scope="col" class="col-5">Ruby</th>
+      <th scope="col" class="col-5">JavaScript</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Local</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Global</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Function</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Instance</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Class</th>
       <td></td>
       <td></td>
     </tr>
@@ -330,12 +460,13 @@ layout: default
     </tr>
     <tr>
       <th scope="row">Object Instantiation</th>
-      <td>N/A,</td>
+      <td>N/A, objects are instantiated from constructor methods. Ruby provides a default constructor <code>new</code> that can be used
+      by not defining a constructor or defining a method called <code>initialize</code> that will be called by the default constructor.</td>
       <td><code>new</code></td>
     </tr>
     <tr>
       <th scope="row">Object Method Invocation</th>
-      <td><code>.</code></td>
+      <td><code>.</code>, <code>&amp;.</code></td>
       <td>N/A, method invocation results from calling a function that is a member of an object (see Object Member Access below).</td>
     </tr>
     <tr>

@@ -13,11 +13,10 @@
     <title>{{ site.title }}</title>
   </head>
   <body>
-    <main class="container border-right border-left">
+    <main class="container-fluid border-right border-left">
       {{ content }}
     </main>
+    <script src="js/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
-
-  <script src="js/highlight.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
 </html>
