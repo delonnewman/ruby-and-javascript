@@ -35,19 +35,19 @@
 </tr>
 <tr>
   <td>Let's talk about nothing</td>
-  <td>`nil` is a singleton instance of `NilClass`</td>
-  <td>As in some Scheme implementations `null` and `undefined`
+  <td><code>nil</code> is a singleton instance of <code>NilClass</code></td>
+  <td>As in some Scheme implementations <code>null</code> and <code>undefined</code>
   are two primitive types that in someways represent nothing.
-  When a function has no return value it returns `undefined`,
-  when an object lacks a key it returns `undefined`. `null` is
-  used in much the same way as `nil` in Ruby.</td>
+  When a function has no return value it returns <code>undefined</code>,
+  when an object lacks a key it returns <code>undefined</code>. <code>null</code> is
+  used in much the same way as <code>nil</code> in Ruby.</td>
 </tr>
 <tr>
   <td>Boolean</td>
-  <td>`true` is a singleton instance of `TrueClass`
-  and `false` is a singleton instance of `FalseClass`</td>
-  <td>`true` and `false` are the two instances of the primitive
-  type `boolean`</td>
+  <td><code>true</code> is a singleton instance of <code>TrueClass</code>
+  and <code>false</code> is a singleton instance of <code>FalseClass</code></td>
+  <td><code>true</code> and <code>false</code> are the two instances of the primitive
+  type <code>boolean</code></td>
 </tr>
 <tr>
   <td>Conditionals</td>
