@@ -58,7 +58,8 @@
   <td>Numbers</td>
   <td>All numeric types are subclasses of <code>Numeric</code>. These types include:
   <code>Integer</code>, <code>Float</code>, and <code>Rational</code>.</td>
-  <td>In ES5 numbers are of the primitive type <code>numeric</code>. ES6 adds a <code>bigint</code> type.</td>
+  <td>In ES5 numbers are of the primitive type <code>number</code>. ES6 adds a <code>bigint</code> type.
+  Numbers are any IEEE floating point number and <code>NaN</code> which is the result of certain mathematical operations like <code>1 / 0</code>.</td>
 </tr>
 <tr>
   <td>Conditionals</td>
