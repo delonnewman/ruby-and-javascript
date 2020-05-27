@@ -110,6 +110,11 @@ is not the same thing as
 }</code></pre></p>
 </td>
 </tr>
+<tr>
+  <td>Loops</td>
+  <td></td>
+  <td></td>
+</tr>
 </tbody>
 </table>
 
