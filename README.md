@@ -24,7 +24,7 @@
   <tbody>
 <tr>
   <td>Statements / Expressions</td>
-  <td>Like Lisp Ruby is expression oriented, i.e.
+  <td>Like Scheme Ruby is expression oriented, i.e.
   everything returns a value including
   language primitives like <code>if</code> and
   <code>case</code>.</td>
@@ -49,6 +49,7 @@ after a statement, e.g.:
 <pre><code>puts 'Negative' if x < 0</code></pre>
 In this case, "Negative" will be printed to the
 screen if <code>x</code> is less than zero.</p>
+<br>
 <p>Also, <code>if</code> expressions evaluate
 to the last expression that has been evaluated.
 So
