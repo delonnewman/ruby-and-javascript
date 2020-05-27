@@ -61,7 +61,7 @@ else {
     console.log('Zero');
 }
 </code></pre>
-Like C and Java curly braces are only
+<p>Like C and Java curly braces are only
 required when the clause is associated with
 more than one statement, but this is a
 feature that requires some caution, because:
@@ -73,7 +73,7 @@ is not the same thing as
 <pre><code>if (x < 0) {
     console.log('Negative');
     console.log('Less than zero');
-}</code></pre>
+}</code></pre></p>
 </td>
 </tr>
 </tbody>
