@@ -28,7 +28,7 @@
   everything returns a value including
   language primitives like <code>if</code> and
   <code>case</code>.</td>
-  <td>Like C, Java and Perl JavaScript makes a
+  <td>Like Java and C JavaScript makes a
   distinction between language statments like
   <code>if</code> and <code>switch</code> and
   expressions like <code>2 + 3</code>.</td>
