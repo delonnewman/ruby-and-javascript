@@ -1,0 +1,283 @@
+---
+layout: default
+---
+<h1>{{ site.title }}</h1>
+
+<h2 id="overview">Overview</h2>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" class="col-2"></th>
+      <th scope="col" class="col-5">Ruby</th>
+      <th scope="col" class="col-5">JavaScript</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Appearance</th>
+      <td>1995</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>Original Author</th>
+      <td>Yukihiro Matsumoto</td>
+      <td>Brendan Eich</td>
+    </tr>
+    <tr>
+      <th>Major Influences</th>
+      <td>Scheme, Smalltalk, Perl</td>
+      <td>Scheme, Self, Java, Perl</td>
+    </tr>
+    <tr>
+      <th>Paradigms</th>
+      <td>Object-Oriented, Functional, Imperative</td>
+      <td>Object-Oriented, Functional, Imperative</td>
+    </tr>
+    <tr>
+      <th>Type Discipline</th>
+      <td>Dynamic, Strong</td>
+      <td>Dynamic, Weak</td>
+    </tr>
+    <tr>
+      <th>Type Hierarchy</th>
+      <td>Like Smalltalk every value is decendent from a single type <code>Object</code> or <code>BasicObject</code> after Ruby 1.9.</td>
+      <td>Similar to Java JavaScript has 5 primitive types: <code>number</code>, <code>boolean</code>, <code>string</code>, <code>null</code>,
+      <code>undefined</code>, and one extension type: <code>Object</code>. ES6 adds <code>symbol</code> and <code>bigint</code>. All other
+      types decend from <code>Object</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="syntax">Syntax</h2>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" class="col-2"></th>
+      <th scope="col" class="col-5">Ruby</th>
+      <th scope="col" class="col-5">JavaScript</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">Let's talk about nothing</th>
+    <td><code>nil</code> is a singleton instance of <code>NilClass</code>.</td>
+    <td>As in some Scheme implementations <code>null</code> and <code>undefined</code>
+    are two primitive types that in different contexts represent nothing.
+    When a function has no return value it returns <code>undefined</code>,
+    when an object lacks a key it returns <code>undefined</code>. <code>null</code> is
+    used in much the same way as <code>nil</code> in Ruby.</td>
+  </tr>
+  <tr>
+    <th>Booleans</th>
+    <td><code>true</code> is a singleton instance of <code>TrueClass</code>
+    and <code>false</code> is a singleton instance of <code>FalseClass</code>.</td>
+    <td><code>true</code> and <code>false</code> are the two instances of the primitive
+    type <code>boolean</code></td>
+  </tr>
+  <tr>
+    <th scope="row">Falsy</th>
+    <td><code>false</code> and <code>nil</code> are considered "false" in boolean contexts (e.g. conditional statements), anything else is considered "true".</td>
+    <td><code>false</code>, <code>null</code>, <code>undefined</code>, <code>0</code>, <code>''</code>, and <code>NaN</code>,
+    are all considered "false" in boolean contexts, anything else is considered "true".</td>
+  </tr>
+  <tr>
+    <th scope="row">Numbers</th>
+    <td>All numeric types are subclasses of <code>Numeric</code>. These types include:
+    <code>Integer</code>, <code>Float</code>, and <code>Rational</code>.</td>
+    <td>In ES5 numbers are of the primitive type <code>number</code>. ES6 adds a <code>bigint</code> type.
+    Numbers are any IEEE floating point number and <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code> which are the result of
+    certain mathematical operations like <code>1 / 0</code>.</td>
+  </tr>
+  <tr>
+    <th scope="row">Strings</th>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">Symbols</th>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">Operators</th>
+    <td>Operators (e.g. <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>) are syntactic sugar for methods. As such, their behavior
+    can be defined and redefined on a per-class basis (see <a href="#object-oriented-programming">Object-Oriented Programming</a>,
+    <a href="#operator-comparision">Operator Comparison</a>).</td>
+    <td>Operators are predefined and cannot be changed or defined for new objects.</td>
+  </tr>
+  <tr>
+    <th scope="row">Statements / Expressions</th>
+    <td>Like Scheme Ruby is expression oriented, i.e. everything returns a value including language primitives like <code>if</code> and
+    <code>for</code>.</td>
+    <td>Like Java and C JavaScript makes a distinction between language statements like <code>if</code> and <code>for</code> and
+    expressions like <code>2 + 3</code>.</td>
+  </tr>
+  <tr>
+    <th scope="row">Conditionals</th>
+    <td>
+      <!-- Ruby Conditionals -->
+      <pre><code>
+      if x &lt; 0
+        puts 'Negative'
+      elsif x &gt; 0
+        puts 'Positive'
+      else
+        puts 'Zero'
+      end
+      </code></pre>
+      <p>Like Perl Ruby also supports conditionals
+      after a statement, e.g.:</p>
+      <pre><code>puts 'Negative' if x &lt; 0</code></pre>
+      <p>In this case, "Negative" will be printed to the screen if <code>x</code> is less than zero.</p>
+      <p>Also, <code>if</code> expressions evaluate to the last expression that has been evaluated. So</p>
+      <pre><code>
+      polarity = if x &lt; 0
+                   'Negative'
+                 elsif x &gt; 0
+                   'Positive'
+                 else
+                   'Zero'
+                 end
+      
+      puts polarity</code></pre>
+      <p>will yield the same results as the first example.</p>
+      <p>And</p>
+      <pre><code>
+      def polarity(x)
+        if x &lt; 0
+          'Negative'
+        elsif x &gt; 0
+          'Positive'
+        else
+          'Zero'
+        end
+      end
+      </code></pre>
+      <p>is the same as</p>
+      <pre><code>
+      def polarity(x)
+        if x &lt; 0
+          return 'Negative'
+        elsif x &gt; 0
+          return 'Positive'
+        else
+          return 'Zero'
+        end
+      end
+      </code></pre>
+    </td>
+    <td>
+      <!-- JavaScript Conditionals -->
+      <pre><code>
+      if (x &lt; 0) {
+          console.log('Negative');
+      }
+      else if (x &gt; 0) {
+          console.log('Positive');
+      }
+      else {
+          console.log('Zero');
+      }
+      </code></pre>
+      <p>Like C and Java curly braces are only required when the clause is associated with more than one statement. This is a
+      feature that requires some caution, because:</p>
+      <pre><code>
+      if (x &lt; 0)
+          console.log('Negative');
+          console.log('Less than zero');
+      </code></pre>
+      is not the same thing as
+      <pre><code>
+      if (x &lt; 0) {
+          console.log('Negative');
+          console.log('Less than zero');
+      }
+      </code></pre>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">Loops</th>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">Functions</th>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+
+<h2 id="operator-comparison">Operator Comparison</h2>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" class="col-2"></th>
+      <th scope="col" class="col-5">Ruby</th>
+      <th scope="col" class="col-5">JavaScript</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Assignment</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Arithmetic</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Comparison</th>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="collections">Collections</h2>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" class="col-2"></th>
+      <th scope="col" class="col-5">Ruby</th>
+      <th scope="col" class="col-5">JavaScript</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Array</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Hash / Map</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Set</th>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="object-oriented-programming">Object Oriented Programming</h2>
+
+<h2 id="functional-programming">Functional Programming</h2>
+
+<h2 id="imperative-programming">Imperative Programming</h2>
+
+<h2 id="concurrent-programming">Concurrent Programming</h2>
+
+<h2 id="core-types">Core Types</h2>
+
+<h2 id="references">References</h2>
+
+- https://brendaneich.com/2008/04/popularity/
