@@ -44,11 +44,11 @@ else
   puts 'Zero'
 end
 </code></pre>
-Like Perl Ruby also supports conditionals
+<p>Like Perl Ruby also supports conditionals
 after a statement, e.g.:
 <pre><code>puts 'Negative' if x < 0</code></pre>
 In this case, "Negative" will be printed to the
-screen if <code>x</code> is less than zero.
+screen if <code>x</code> is less than zero.</p>
 </td>
 <td>
 <pre><code>if (x < 0) {
