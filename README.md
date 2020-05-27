@@ -35,7 +35,7 @@
 </tr>
 <tr>
   <td>Let's talk about nothing</td>
-  <td><code>nil</code> is a singleton instance of <code>NilClass</code></td>
+  <td><code>nil</code> is a singleton instance of <code>NilClass</code>.</td>
   <td>As in some Scheme implementations <code>null</code> and <code>undefined</code>
   are two primitive types that in someways represent nothing.
   When a function has no return value it returns <code>undefined</code>,
@@ -43,11 +43,17 @@
   used in much the same way as <code>nil</code> in Ruby.</td>
 </tr>
 <tr>
-  <td>Boolean</td>
+  <td>Booleans</td>
   <td><code>true</code> is a singleton instance of <code>TrueClass</code>
-  and <code>false</code> is a singleton instance of <code>FalseClass</code></td>
+  and <code>false</code> is a singleton instance of <code>FalseClass</code>.</td>
   <td><code>true</code> and <code>false</code> are the two instances of the primitive
   type <code>boolean</code></td>
+</tr>
+<tr>
+  <td>Numbers</td>
+  <td>All numeric types are subclasses of <code>Numeric</code>. These types include:
+  <code>Integer</code>, <code>Float</code>, and <code>Rational</code>.</td>
+  <td>In ES5 numbers are of the primitive type <code>numeric</code>. ES6 adds a <code>bigint</code> type.</td>
 </tr>
 <tr>
   <td>Conditionals</td>
