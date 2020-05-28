@@ -6,13 +6,7 @@ layout: default
 <h2 id="overview">Overview</h2>
 
 <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Ruby</th>
-      <th scope="col">JavaScript</th>
-    </tr>
-  </thead>
+  {% include table_header.html %}
   <tbody>
     <tr>
       <th>Appearance</th>
@@ -45,13 +39,7 @@ layout: default
 <h2 id="implementation">Implementation</h2>
 
 <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Ruby</th>
-      <th scope="col">JavaScript</th>
-    </tr>
-  </thead>
+  {% include table_header.html %}
   <tbody>
     <tr>
       <th>Standardization</th>
@@ -76,13 +64,7 @@ layout: default
 <h2 id="syntax">Syntax</h2>
 
 <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Ruby</th>
-      <th scope="col">JavaScript</th>
-    </tr>
-  </thead>
+  {% include table_header.html %}
   <tbody>
     <tr>
       <th>Type Hierarchy</th>
@@ -179,13 +161,7 @@ layout: default
 <h2 id="control-flow">Control Flow</h2>
 
 <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Ruby</th>
-      <th scope="col">JavaScript</th>
-    </tr>
-  </thead>
+  {% include table_header.html %}
   <tbody>
     <tr>
       <th scope="row">Statements vs. Expressions</th>
@@ -208,7 +184,9 @@ layout: default
         end
         </code></pre>
         <p>Like Perl, Ruby also supports conditionals appended after a statement, e.g.:</p>
-        <pre><code>puts 'Negative' if x &lt; 0</code></pre>
+        <pre><code>
+        puts 'Negative' if x &lt; 0
+        </code></pre>
         <p>In this case, "Negative" will be printed to the screen if <code>x</code> is less than zero.</p>
         <p>Also like Perl, Ruby supports a negated conditional statement <code>unless</code>.</p>
         <pre><code>
@@ -320,7 +298,7 @@ layout: default
             return x + 1;
         };
         </code></pre>
-        <p>Note the semicolon at the end of the expression is required.</p>
+        <p class="note">Note: the semicolon at the end of the expression is required.</p>
         <p>Functions are also expressions when they are a part of an object expression.</p>
         <pre><code>
         var Numeric = {
@@ -457,13 +435,7 @@ layout: default
 <h2 id="operator-comparison">Operator Comparison</h2>
 
 <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Ruby</th>
-      <th scope="col">JavaScript</th>
-    </tr>
-  </thead>
+  {% include table_header.html %}
   <tbody>
     <tr>
       <th scope="row">Boolean</th>
@@ -565,13 +537,7 @@ layout: default
 <h2 id="collections">Collections</h2>
 
 <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Ruby</th>
-      <th scope="col">JavaScript</th>
-    </tr>
-  </thead>
+  {% include table_header.html %}
   <tbody>
     <tr>
       <th scope="row">Array</th>

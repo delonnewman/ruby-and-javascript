@@ -1,0 +1,21 @@
+---
+---
+
+.comparison-chart {
+  .col-description {
+    width: 15%;
+  }
+
+  .col-ruby, .col-javascript {
+    width: 42.3%;
+    overflow: auto;
+  }
+
+  .note {
+    font-style: italic;
+  }
+
+  pre > code {
+    padding: 0;
+  }
+}
