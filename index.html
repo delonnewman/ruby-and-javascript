@@ -171,91 +171,6 @@ layout: default
         expressions like <code>2 + 3</code> or <code>3 + 4 == 7</code>.</td>
     </tr>
     <tr>
-      <th scope="row">Conditionals</th>
-      <td class="overflow-auto">
-        <!-- Ruby Conditionals -->
-        <pre><code>
-        if x &lt; 0
-          puts 'Negative'
-        elsif x &gt; 0
-          puts 'Positive'
-        else
-          puts 'Zero'
-        end
-        </code></pre>
-        <p>Like Perl, Ruby also supports conditionals appended after a statement, e.g.:</p>
-        <pre><code>
-        puts 'Negative' if x &lt; 0
-        </code></pre>
-        <p>In this case, "Negative" will be printed to the screen if <code>x</code> is less than zero.</p>
-        <p>Also like Perl, Ruby supports a negated conditional statement <code>unless</code>.</p>
-        <pre><code>
-        unless x &lt; 0
-          puts 'Positive'
-        end
-        </code></pre>
-        <p>or</p>
-        <pre><code>
-        puts 'Positive' unless x &lt; 0
-        </code></pre>
-        <p>Conditional expressions evaluate to the last expression that has been evaluated. So</p>
-        <pre><code>
-        polarity = if x &lt; 0
-                     'Negative'
-                   elsif x &gt; 0
-                     'Positive'
-                   else
-                     'Zero'
-                   end
-        
-        puts polarity</code></pre>
-        <p>will yield the same results as the first example.</p>
-        <p>Ruby also supports an optional <code>then</code> keyword:</p>
-        <pre><code>
-        if x &lt; 0 then
-          'Negative'
-        elsif x &gt; 0
-          'Positive'
-        else
-          'Zero'
-        end
-        </code></pre>
-        <p>This can be useful for inline conditionals:</p>
-        <pre><code>
-        polarity = if x &lt; 0 then 'Negative' else 'Positive' end
-        puts polarity
-        </code></pre>
-      </td>
-      <td>
-        <!-- JavaScript Conditionals -->
-        <pre><code>
-        if (x &lt; 0) {
-            console.log('Negative');
-        }
-        else if (x &gt; 0) {
-            console.log('Positive');
-        }
-        else {
-            console.log('Zero');
-        }
-        </code></pre>
-        <p>Like C and Java curly braces are only required when the clause is associated with more than one statement. This is a
-        feature that requires some caution, because:</p>
-        <pre><code>
-        if (x &lt; 0)
-            console.log('Negative');
-            console.log('Less than zero');
-        </code></pre>
-        is not the same thing as
-        <pre><code>
-        if (x &lt; 0) {
-            console.log('Negative');
-            console.log('Less than zero');
-        }
-        </code></pre>
-      </td>
-    </tr>
-    <tr>
       <th scope="row">Functions / Methods</th>
       <td>
         <pre><code>
@@ -309,6 +224,92 @@ layout: default
         <p>When evaluated, as an expression a <code>Function</code> object is returned (see <a href="#object-oriented-programming">Object Oriented Programming</a>,
         <a href="#functional-programming">Functional Programming</a>).</p>
         <p>When called, the function will return the value given by the first <code>return</code> statement that is executed or <code>undefined</code> if nothing is returned.</p>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Conditionals</th>
+      <td class="overflow-auto">
+        <!-- Ruby Conditionals -->
+        <pre><code>
+        if x &lt; 0
+          puts 'Negative'
+        elsif x &gt; 0
+          puts 'Positive'
+        else
+          puts 'Zero'
+        end
+        </code></pre>
+        <p>Like Perl, Ruby also supports conditionals appended after a statement, e.g.:</p>
+        <pre><code>
+        puts 'Negative' if x &lt; 0
+        </code></pre>
+        <p>In this case, "Negative" will be printed to the screen if <code>x</code> is less than zero.</p>
+        <p>Also like Perl, Ruby supports a negated conditional statement <code>unless</code>.</p>
+        <pre><code>
+        unless x &lt; 0
+          puts 'Positive'
+        end
+        </code></pre>
+        <p>or</p>
+        <pre><code>
+        puts 'Positive' unless x &lt; 0
+        </code></pre>
+        <p>Conditional expressions evaluate to the last expression that has been evaluated. So</p>
+        <pre><code>
+        polarity = if x &lt; 0
+                     'Negative'
+                   elsif x &gt; 0
+                     'Positive'
+                   else
+                     'Zero'
+                   end
+        
+        puts polarity
+        </code></pre>
+        <p>will yield the same results as the first example.</p>
+        <p>Ruby also supports an optional <code>then</code> keyword:</p>
+        <pre><code>
+        if x &lt; 0 then
+          'Negative'
+        elsif x &gt; 0
+          'Positive'
+        else
+          'Zero'
+        end
+        </code></pre>
+        <p>This can be useful for inline conditionals:</p>
+        <pre><code>
+        polarity = if x &lt; 0 then 'Negative' elsif x &gt; 0 'Positive' else 'Zero' end
+        puts polarity
+        </code></pre>
+      </td>
+      <td>
+        <!-- JavaScript Conditionals -->
+        <pre><code>
+        if (x &lt; 0) {
+            console.log('Negative');
+        }
+        else if (x &gt; 0) {
+            console.log('Positive');
+        }
+        else {
+            console.log('Zero');
+        }
+        </code></pre>
+        <p>Like C and Java curly braces are only required when the clause is associated with more than one statement. This is a
+        feature that requires some caution, because:</p>
+        <pre><code>
+        if (x &lt; 0)
+            console.log('Negative');
+            console.log('Less than zero');
+        </code></pre>
+        is not the same thing as
+        <pre><code>
+        if (x &lt; 0) {
+            console.log('Negative');
+            console.log('Less than zero');
+        }
+        </code></pre>
       </td>
     </tr>
     <tr>

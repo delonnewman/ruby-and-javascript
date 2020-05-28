@@ -8,6 +8,10 @@
 
   .col-ruby, .col-javascript {
     width: 42.3%;
+  }
+
+  table td {
+    max-width: 500px;
     overflow: auto;
   }
 
