@@ -62,7 +62,7 @@ layout: default
       <th>Implementations</th>
       <td>MRI, MRuby, JRuby, DragonRuby, Opal, TruffleRuby, ArtichokeRuby (see <a target="awesome-rubies" href="https://github.com/planetruby/awesome-rubies">Awesome Rubies</a>
       for more).</td>
-      <td>V8, SpiderMonkey, JavaScriptCore, Rhino, Chakra, many more in whole or in part.</td>
+      <td>V8, SpiderMonkey, JavaScriptCore, Rhino, Chakra, Nashorn, many more in whole or in part.</td>
     </tr>
     <tr>
       <th>Versions</th>
@@ -132,31 +132,46 @@ layout: default
       <td></td>
     </tr>
     <tr>
+      <th scope="row">Identifiers</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <th scope="row">Symbols</th>
-      <td></td>
-      <td></td>
+      <td><p>A data type that comes from Lisps like Scheme. Symbols are like strings except they proceed with a colon. When the symbol only contains charaters that can be used in
+      identifiers, quotes can be omitted (which is what is most commonly seen). Symbols are immutable, and for each symbol value only one instance is created. For example:
+      evaluating the strings <code>"jacob"</code> and <code>"jacob"</code> again will create two objects. Whereas, evaluating the symbol <code>:jacob</code> and <code>:jacob</code>
+      again only creates one object.</p>
+      <p>Symbols are useful for meta-programming (see <a href="#meta-programming">Meta Programming</a>), but are most commonly used as hash keys since symbol keys are more memory
+      efficient than string keys particularly if they are accessed often, this is so commonly done that hash literals provide a short-cut (see Hash Literals below).</p></td>
+      <td>ES6 adds a <code>Symbol</code> data type, but it's used for a very different purpose.</td>
     </tr>
     <tr>
       <th scope="row">Array Literals</th>
-      <td></td>
-      <td></td>
+      <td>[]</td>
+      <td>[]</td>
     </tr>
     <tr>
       <th scope="row">Hash Literals</th>
-      <td></td>
-      <td></td>
+      <td>{}</td>
+      <td>N/A</td>
     </tr>
     <tr>
       <th scope="row">Object Literals</th>
-      <td></td>
-      <td></td>
+      <td>N/A</td>
+      <td>{}</td>
+    </tr>
+    <tr>
+      <th scope="row">Blocks</th>
+      <td>{}, do..end</td>
+      <td>N/A, can do comparable things with function expressions.</td>
     </tr>
     <tr>
       <th scope="row">Operators</th>
       <td>Operators (e.g. <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>) are syntactic sugar for methods. As such, their behavior
       can be defined and redefined on a per-class basis (see <a href="#object-oriented-programming">Object-Oriented Programming</a>,
       <a href="#operator-comparision">Operator Comparison</a>).</td>
-      <td>Operators are predefined and cannot be changed or defined for new objects (see <a href="#operator-comparision">Operator Comparison</a>).</td>
+      <td>Operators are predefined and cannot be changed or redefined for new objects (see <a href="#operator-comparision">Operator Comparison</a>).</td>
     </tr>
   </tbody>
 </table>
@@ -178,62 +193,6 @@ layout: default
       <code>for</code>.</td>
       <td>Like Java and C, JavaScript makes a distinction between language statements like <code>if</code> and <code>for</code> and
         expressions like <code>2 + 3</code> or <code>3 + 4 == 7</code>.</td>
-    </tr>
-    <tr>
-      <th scope="row">Functions / Methods</th>
-      <td>
-        <pre><code>
-        def add1(x)
-          x + 1
-        end
-        </code></pre>
-        <p>Since most everything in Ruby is an object or a method (see <a href="object-oriented-programming">Object Oriented Programming</a>). What are sometimes called "functions" are
-        really methods (i.e. "functions" that belong to a class). If you define a method outside of a class or module (for example in a short script) it gets added to <code>Object</code>.</p>
-        <p>Like everything else in Ruby, method definitions are expressions, they evaluate to their name as a symbol so the method above will evaluate to <code>:add1</code>.</p>
-        <p>Ruby also has at least one other type that can be used to model functions (see <a href="object-oriented-programming">Functional Programming</a>).</p>
-        <p>When called a method returns the value of the last expression that has been evaluated, so <code>return</code> is only required if you want to terminate execution early.
-        Which means that this:</p>
-        <pre><code>
-        def add1(x)
-          return x + 1
-        end
-        </code></pre>
-        <p>is the same as the first example, but this:</p>
-        <pre><code>
-        def add1(x)
-          return nil if x.nil?
-
-          x + 1
-        end
-        </code></pre>
-        <p>is not.</p>
-      </td>
-      <td>
-        <pre><code>
-        function add1(x) {
-            return x + 1;
-        }
-        </code></pre>
-        <p>Generally functions are statements (i.e. they don't evaluate to any value), but under certain circumstances they are evaluated as expressions. The rules are complex
-        so we'll just cover two cases that are generally useful to know.</p>
-        <p>Functions are expressions when they are part of an assignment expression.</p>
-        <pre><code>
-        var add1 = function(x) {
-            return x + 1;
-        };
-        </code></pre>
-        <p>Note the semicolon at the end of the expression is required.</p>
-        <p>Functions are also expressions when they are a part of an object expression.</p>
-        <pre><code>
-        var Numeric = {
-            add1: function(x) { return x + 1; },
-            sub1: function(x) { return 1 - x; }
-        };
-        </code></pre>
-        <p>When evaluated, as an expression a <code>Function</code> object is returned (see <a href="#object-oriented-programming">Object Oriented Programming</a>,
-        <a href="#functional-programming">Functional Programming</a>).</p>
-        <p>When called, the function will return the value given by the first <code>return</code> statement that is executed or <code>undefined</code> if nothing is returned.</p>
-      </td>
     </tr>
     <tr>
       <th scope="row">Conditionals</th>
@@ -319,72 +278,177 @@ layout: default
       </td>
     </tr>
     <tr>
+      <th scope="row">Functions / Methods</th>
+      <td>
+        <pre><code>
+        def add1(x)
+          x + 1
+        end
+        </code></pre>
+        <p>Since most everything in Ruby is an object or a method (see <a href="#object-oriented-programming">Object Oriented Programming</a>). What are sometimes called "functions" are
+        really methods (i.e. "functions" that belong to a class). If you define a method outside of a class or module (for example in a short script) it gets added to <code>Object</code>.</p>
+        <p>Like everything else in Ruby, method definitions are expressions, they evaluate to their name as a symbol so the method above will evaluate to <code>:add1</code>.</p>
+        <p>Ruby also has at least one other type that can be used to model functions (see <a href="#functional-programming">Functional Programming</a>).</p>
+        <p>When called a method returns the value of the last expression that has been evaluated, so <code>return</code> is only required if you want to terminate execution early.
+        Which means that this:</p>
+        <pre><code>
+        def add1(x)
+          return x + 1
+        end
+        </code></pre>
+        <p>is the same as the first example, but this:</p>
+        <pre><code>
+        def add1(x)
+          return nil if x.nil?
+
+          x + 1
+        end
+        </code></pre>
+        <p>is not.</p>
+      </td>
+      <td>
+        <pre><code>
+        function add1(x) {
+            return x + 1;
+        }
+        </code></pre>
+        <p>Generally functions are statements (i.e. they don't evaluate to any value), but under certain circumstances they are evaluated as expressions. The rules are complex
+        so we'll just cover two cases that are generally useful to know.</p>
+        <p>Functions are expressions when they are part of an assignment expression.</p>
+        <pre><code>
+        var add1 = function(x) {
+            return x + 1;
+        };
+        </code></pre>
+        <p>Note the semicolon at the end of the expression is required.</p>
+        <p>Functions are also expressions when they are a part of an object expression.</p>
+        <pre><code>
+        var Numeric = {
+            add1: function(x) { return x + 1; },
+            sub1: function(x) { return 1 - x; }
+        };
+        </code></pre>
+        <p>When evaluated, as an expression a <code>Function</code> object is returned (see <a href="#object-oriented-programming">Object Oriented Programming</a>,
+        <a href="#functional-programming">Functional Programming</a>).</p>
+        <p>When called, the function will return the value given by the first <code>return</code> statement that is executed or <code>undefined</code> if nothing is returned.</p>
+      </td>
+    </tr>
+    <tr>
       <th scope="row">Case / Switch</th>
-      <td></td>
-      <td></td>
+      <td>
+        <pre><code>
+        case language
+        when :spanish
+          puts "Hola"
+        when :hawaiian
+          puts "Aloha"
+        when :albanian
+          puts "Merdita"
+        else
+          puts "Hello"
+        end
+        </code></pre>
+      </td>
+      <td>
+        <pre><code>
+        switch(language) {
+          case 'spanish':
+            console.log('Hola');
+            break;
+          case 'hawaiian':
+            console.log('Aloha');
+            break;
+          case 'albanian'
+            console.log('Merdita');
+            break;
+          default:
+            console.log('Hello');
+            break;
+        }
+        </code></pre>
+      </td>
     </tr>
     <tr>
       <th scope="row">Imperative Block</th>
-      <td></td>
-      <td></td>
+      <td>
+        <pre><code>
+        DB_CONN = begin
+                    config = YAML.load('db/config.yml')
+                    TinyTds::Client.new(config)
+                  end
+        </code></pre>
+      </td>
+      <td>
+        N/A, can be faked with a self-calling function.
+        <pre><code>
+
+        </code></pre>
+      </td>
     </tr>
     <tr>
       <th scope="row">For</th>
-      <td></td>
-      <td></td>
+      <td>
+        <pre><code>
+        for x in (1..100)
+          puts x
+        end
+        </code></pre>
+        <pre><code class="ruby">
+        puts x for x in (1..100)
+        </code></pre>
+      </td>
+      <td>
+      </td>
     </tr>
     <tr>
       <th scope="row">While</th>
-      <td></td>
+      <td>
+        <pre><code>
+        while x &lt; 10
+          puts x
+        end
+        </code></pre>
+        <pre><code>
+        puts x while x &lt; 10
+        </code></pre>
+        <pre><code>
+        until x &gt; 10
+          puts x
+        end
+        </code></pre>
+        <pre><code>
+        puts x until x &gt; 10
+        </code></pre>
+      </td>
       <td></td>
     </tr>
     <tr>
       <th scope="row">Do / While</th>
-      <td></td>
+      <td>
+        <p>N/A, but can be achieved by combining a <code>begin</code> block with a <code>while</code> loop.</p>
+        <pre><code>
+        pool = (1..100).to_a
+        x = pool.sample
+        begin
+          y = pool.sample
+        end while x == y
+        </code></pre>
+      </td>
       <td></td>
     </tr>
     <tr>
       <th scope="row">Exception Handling</th>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="variable-scope">Variable Scope</h2>
-
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Ruby</th>
-      <th scope="col">JavaScript</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Local</th>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">Global</th>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">Function</th>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">Instance</th>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">Class</th>
-      <td></td>
+      <td>
+        <pre><code>
+        DB_CONN = begin
+                    config = YAML.load('db/config.yml')
+                    TinyTds::Client.new(config)
+                  rescue =&gt; e
+                    puts "There was an error connecting to your database: #{e.message}"
+                    exit 1
+                  end
+        </code></pre>
+      </td>
       <td></td>
     </tr>
   </tbody>
@@ -471,7 +535,7 @@ layout: default
     </tr>
     <tr>
       <th scope="row">Object Member Access</th>
-      <td>N/A, object members are always private, with out resorting to meta-programming, member access can only be acheived by defining an attribute method for the
+      <td>N/A, object members are always private, without resorting to meta-programming, member access can only be achieved by defining an attribute method for the
       class (see Object Method Invocation above).</td>
       <td><code>.</code>, <code>[]</code></td>
     </tr>
@@ -535,4 +599,6 @@ layout: default
 
 <h2 id="references">References</h2>
 
-- https://brendaneich.com/2008/04/popularity/
+<ul>
+  <li><a href="https://brendaneich.com/2008/04/popularity">https://brendaneich.com/2008/04/popularity</a></li>
+</ul>
