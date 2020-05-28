@@ -164,7 +164,28 @@ layout: default
     </tr>
     <tr>
       <th scope="row">Other String Forms</th>
-      <td></td>
+      <td>
+        <p>Like Perl, Ruby supports heredocs which can be useful when you need to include large strings in your source code.</p>
+        <pre><code class="ruby">
+        MANAGERS_QUERY = &lt;&lt;-SQL
+          select employee_id
+            from emp_all
+           where term_date = to_date('01011700', 'mmddyyyy')
+          connect by prior manager_id = employee_id
+            start with employee_id in (?)
+        SQL
+        </code></pre>
+        <p>If a <code>~</code> is used instead of a <code>-</code> at the start of the heredoc the whitespace at the beginning of each line will be removed.</p>
+        <pre><code class="ruby">
+        name = "Ella"
+        card_html = &lt;&lt;~HTML
+          &lt;div class="card"&gt;
+            #{name}
+          &lt;/div&gt;
+        HTML
+        </code></pre>
+        <p>Heredocs follow the same interpolation rules as <code>"</code> string literals.</p>
+      </td>
       <td>N/A</td>
     </tr>
     <tr>
@@ -189,12 +210,24 @@ layout: default
     </tr>
     <tr>
       <th scope="row">Array Literals</th>
-      <td><code>[]</code>, <code>%w[]</code>, <code>%W[]</code>, <code>%i[]</code>, <code>%I[]</code></td>
-      <td><code>[]</code></td>
+      <td>
+        <pre><code class="ruby">
+        ['Hewy', 'Duey', 'Lewy']
+        </code></pre>
+        <code>%w[]</code>, <code>%W[]</code>, <code>%i[]</code>, <code>%I[]</code></td>
+      <td>
+        <pre><code class="javascript">
+        ['Hewy', 'Duey', 'Lewy']
+        </code></pre>
+      </td>
     </tr>
     <tr>
       <th scope="row">Hash Literals</th>
-      <td><code>{}</code></td>
+      <td>
+        <pre><code class="ruby">
+        { :name =&gt; "Peter Parker", :age =&gt; 16 }
+        </code></pre>
+      </td>
       <td>N/A, JavaScript doesn't have <em>hash</em> literals, but it does have <em>object</em> literals, which are often used like hashes, but there are some important
       differences (see Object Literals below, <a href="#object-oriented-programming">Object-Oriented Programming</a>).</td>
     </tr>
