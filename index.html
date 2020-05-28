@@ -105,8 +105,67 @@ layout: default
     </tr>
     <tr>
       <th scope="row">Strings</th>
+      <td>
+        <pre><code class="ruby">"Do not go gentle into that good night"</code></pre>
+        <pre><code class="ruby">'Old age should burn and rave at close of day'</code></pre>
+        <p>Strings are values that are wrapped in matching <code>'</code>s or <code>"</code>s. If <code>"</code>s are used the strings will be interpolated.</p>
+        <pre><code class="ruby">
+        name = "Dylan Thomas"
+        "By #{name}" # =&gt; "By Dylan Thomas"
+        </code></pre>
+        <p>If a variable with a sigil is used the brackets can be removed.</p>
+        <pre><code class="ruby">
+        @name = "Harriet"
+        "Hello #@name" # =&gt; "Hello Harriet"
+        </code></pre>
+        <p>Complex expressions will also be interpolated.</p>
+        <pre><code class="ruby">
+        x, y = 3, 4
+        "x + y = #{x + y}" # =&gt; "x + y = 7"
+        </code></pre>
+        <p>Strings wrapped in <code>`</code>s will execute the contents using the operating system's shell and return the results. For example:</p>
+        <pre><code class="ruby">
+        puts `ls -l`
+        </code></pre>
+        <p>will display the current directory's contents.</p>
+        <p>Strings are mutable (i.e. they can be changed in-place).</p>
+        <pre><code>
+        name = "Toni"
+        name[3] = 'y'
+        name == "Toni" # =&gt; false
+        name == "Tony" # =&gt; true
+        </code></pre>
+        <p>You can make strings immutable by calling the <code>freeze</code> method on the string. As of Ruby 2.3, you can make strings immutable by default,
+        by adding the comment</p>
+        <pre><code># frozen_string_literal: true</code></pre>
+        <p>to the top of your file.</p>
+      </td>
+      <td>
+        <pre><code class="javascript">"Do not go gentle into that good night"</code></pre>
+        <pre><code class="javascript">'Old age should burn and rave at close of day'</code></pre>
+        <p>Strings are values that are wrapped in matching <code>'</code>s or <code>"</code>s. In ES6 strings wrapped in <code>`</code>s will be interpolated.</p>
+        <pre><code class="javascript">
+        var name = "Dylan Thomas"
+        `By ${name}` // =&gt; "By Dylan Thomas"
+        </code></pre>
+        <p>Complex expressions will also be interpolated.</p>
+        <pre><code class="javascript">
+        var x = 3, y = 4;
+        `x + y = ${x + y}` // =&gt; "x + y = 7"
+        </code></pre>
+        <p>Strings are mutable (i.e. they can be changed in-place).</p>
+        <pre><code>
+        var name = "Toni"
+        name[3] = 'y'
+        name == "Toni" // =&gt; false
+        name == "Tony" // =&gt; true
+        </code></pre>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Other String Forms</th>
       <td></td>
-      <td></td>
+      <td>N/A</td>
     </tr>
     <tr>
       <th scope="row">Regular Expressions</th>
@@ -130,18 +189,19 @@ layout: default
     </tr>
     <tr>
       <th scope="row">Array Literals</th>
-      <td>[]</td>
-      <td>[]</td>
+      <td><code>[]</code>, <code>%w[]</code>, <code>%W[]</code>, <code>%i[]</code>, <code>%I[]</code></td>
+      <td><code>[]</code></td>
     </tr>
     <tr>
       <th scope="row">Hash Literals</th>
-      <td>{}</td>
-      <td>N/A</td>
+      <td><code>{}</code></td>
+      <td>N/A, JavaScript doesn't have <em>hash</em> literals, but it does have <em>object</em> literals, which are often used like hashes, but there are some important
+      differences (see Object Literals below, <a href="#object-oriented-programming">Object-Oriented Programming</a>).</td>
     </tr>
     <tr>
       <th scope="row">Object Literals</th>
-      <td>N/A</td>
-      <td>{}</td>
+      <td>N/A, Ruby doesn't support object literals, but it does support singleton objects (see <a href="#object-oriented-programming">Object-Oriented Programming</a>).</td>
+      <td><code>{}</code></td>
     </tr>
     <tr>
       <th scope="row">Blocks</th>
@@ -149,11 +209,22 @@ layout: default
       <td>N/A, can do comparable things with function expressions.</td>
     </tr>
     <tr>
+      <th scope="row">Lambda Expressions</th>
+      <td><code>-&gt;{}</code>, <code>lambda</code>, <code>proc</code></td>
+      <td>ES6 adds <code>=&gt;{}</code>, in earlier versions of JavaScript function expressions can be used.</td>
+    </tr>
+    <tr>
       <th scope="row">Operators</th>
       <td>Operators (e.g. <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>) are syntactic sugar for methods. As such, their behavior
       can be defined and redefined on a per-class basis (see <a href="#object-oriented-programming">Object-Oriented Programming</a>,
       <a href="#operator-comparision">Operator Comparison</a>).</td>
       <td>Operators are predefined and cannot be changed or redefined for new objects (see <a href="#operator-comparision">Operator Comparison</a>).</td>
+    </tr>
+    <tr>
+      <th scope="row">Semicolons</th>
+      <td>Optional, generally not used</td>
+      <td>Though they can often be left out without consequence, generally they are considered required. If <code>"use strict"</code> is used
+      they are required.</td>
     </tr>
   </tbody>
 </table>
