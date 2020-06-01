@@ -169,8 +169,7 @@ layout: default
         <pre><code class="ruby">
         MANAGERS_QUERY = &lt;&lt;-SQL
           select employee_id
-            from emp_all
-           where term_date = to_date('01011700', 'mmddyyyy')
+            from employees
           connect by prior manager_id = employee_id
             start with employee_id in (?)
         SQL
@@ -227,6 +226,9 @@ layout: default
         <pre><code class="ruby">
         { :name =&gt; "Peter Parker", :age =&gt; 16 }
         </code></pre>
+        <pre><code class="ruby">
+        { name: "Peter Parker", age: 16 }
+        </code></pre>
       </td>
       <td>N/A, JavaScript doesn't have <em>hash</em> literals, but it does have <em>object</em> literals, which are often used like hashes, but there are some important
       differences (see Object Literals below, <a href="#object-oriented-programming">Object-Oriented Programming</a>).</td>
@@ -234,7 +236,22 @@ layout: default
     <tr>
       <th scope="row">Object Literals</th>
       <td>N/A, Ruby doesn't support object literals, but it does support singleton objects (see <a href="#object-oriented-programming">Object-Oriented Programming</a>).</td>
-      <td><code>{}</code></td>
+      <td>
+        <pre><code class="javascript">
+        { name: "Peter Parker", age: 16 }
+        </code></pre>
+        <p>Object literals have much in common with Ruby's hash literals, in fact, the syntax for object literals is identical to Ruby's short-cut syntax for hash-literals
+        with symbol keys.</p>
+        <p>However, there are important differences, first the keys can only be strings or in ES6 Symbols (read about ES6's Symbol data type above).</p>
+        <p>The other important difference is that these are objects designed for programming in an object-oriented style, so key lookup is connected to
+        JavaScript's inheritance mechanism (see <a href="#object-oriented-programming">Object-Oriented Programming</a>) which can negatively impact performance,
+        and lead to strange bugs when using objects has hashes.</p>
+        <p>The ECMAScript standards have added methods that make using object literals has hashes, less hazardous, making use of these can lead to more robust code
+        (see <a target="mozilla" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames">Object.getOwnPropertyNames</a>,
+        <a target="mozilla" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys">Object.keys</a>,
+        <a target="mozilla" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values">Object.values</a>).
+        </p>
+      </td>
     </tr>
     <tr>
       <th scope="row">Blocks</th>
@@ -322,7 +339,7 @@ layout: default
         <pre><code>
         var Numeric = {
             add1: function(x) { return x + 1; },
-            sub1: function(x) { return 1 - x; }
+            sub1: function(x) { return x - 1; }
         };
         </code></pre>
         <p>When evaluated, as an expression a <code>Function</code> object is returned (see <a href="#object-oriented-programming">Object Oriented Programming</a>,
@@ -664,12 +681,91 @@ layout: default
 
 <h2 id="object-oriented-programming">Object Oriented Programming</h2>
 
+<table class="table">
+  {% include table_header.html %}
+  <tbody>
+    <tr>
+      <th scope="row">Classes &amp; Objects</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Inheritance</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Operator Overloading</th>
+      <td></td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th scope="row">Singleton Objects</th>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="functional-programming">Functional Programming</h2>
 
+<table class="table">
+  {% include table_header.html %}
+  <tbody>
+    <tr>
+      <th scope="row">Mutability</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Closures</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Higher-order Functions</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Map</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Reduce</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Filter</th>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="meta-programming">Meta Programming</h2>
+
+<table class="table">
+  {% include table_header.html %}
+  <tbody>
+    <tr>
+      <th scope="row">Reflection</th>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Intercepting Messages</th>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="references">References</h2>
 
 <ul>
   <li><a href="https://brendaneich.com/2008/04/popularity">https://brendaneich.com/2008/04/popularity</a></li>
+  <li><a href="https://www.ruby-lang.org/en/about/">https://www.ruby-lang.org/en/about/</a></li>
 </ul>
