@@ -74,6 +74,56 @@ layout: default
       types decend from <code>Object</code>.</td>
     </tr>
     <tr>
+      <th><a href="#notes">Type Conversion</a>, <a href="#notes">Type Coercion</a></th>
+      <td>
+        <p>All types must be explicity converted through method calls. For example</p>
+        <pre><code class="ruby">"1" + 1</code></pre>
+        <p>results in an error.</p>
+        <p>To perform the operation, you must explicity declare your intent. So, for example</p>
+        <pre><code class="ruby">"1" + 1.to_s # =&gt; "11"</code></pre>
+        <pre><code class="ruby">"1".to_i + 1 # =&gt; 2</code></pre>
+        <p>Ruby doesn't perform type coercions so <code>===</code> serves a very different purpose than it does in JavaScript (see <a href="#operator-comparison">Operator Comparison</a>).</p>
+      </td>
+      <td>
+        <p>The compiler makes many automatic type conversions, some of which may seem surpising. For example,</p>
+        <pre><code class="javascript">"1" + 1 // =&gt; "11"</code></pre>
+        <pre><code class="javascript">1 + "1" // =&gt; "11"</code></pre>
+        <pre><code class="javascript">true + false // =&gt; 1</code></pre>
+        <pre><code class="javascript">1 * "1" // =&gt; 1</code></pre>
+        <pre><code class="javascript">1 == "1" // =&gt; true</code></pre>
+        <pre><code class="javascript">1 == [1] // =&gt; true</code></pre>
+        <pre><code class="javascript">0 == [0] // =&gt; true</code></pre>
+        <pre><code class="javascript">0 == [] // =&gt; true</code></pre>
+        <pre><code class="javascript">true == 1 // =&gt; true</code></pre>
+        <pre><code class="javascript">true == "1" // =&gt; true</code></pre>
+        <pre><code class="javascript">true == "1.0" // =&gt; true</code></pre>
+        <pre><code class="javascript">false == 0 // =&gt; true</code></pre>
+        <pre><code class="javascript">false == '0' // =&gt; true</code></pre>
+        <pre><code class="javascript">false == '0.0' // =&gt; true</code></pre>
+        <pre><code class="javascript">false == '' // =&gt; true</code></pre>
+        <pre><code class="javascript">false == ' ' // =&gt; true</code></pre>
+        <pre><code class="javascript">false == [] // =&gt; true</code></pre>
+        <pre><code class="javascript">false == [[]] // =&gt; true</code></pre>
+        <pre><code class="javascript">false == [0] // =&gt; true</code></pre>
+        <pre><code class="javascript">'' == [] // =&gt; true</code></pre>
+        <p>Some best practices (e.g. using <code>===</code> rather than <code>==</code> are recommended to limit confusion around these automatic conversions.
+        Since <code>===</code> doesn't perform type coercions.)</p>
+
+        For more information on JavaScript's type coercions see
+        <a href="https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/">https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/</a>,
+        and <a href="https://dorey.github.io/JavaScript-Equality-Table/">https://dorey.github.io/JavaScript-Equality-Table/</a>.
+      </td>
+    </tr>
+    <tr>
+      <th><a href="#notes">Strict Mode</a></th>
+      <td>N/A</td>
+      <td>
+        <pre><code class="javascript">'use strict';</code></pre>
+        <pre><code class="javascript">"use strict";</code></pre>
+        See also <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">Strict mode on MDN</a>
+      </td>
+    </tr>
+    <tr>
       <th scope="row">Let's talk about nothing</th>
       <td><code>nil</code> is a singleton instance of <code>NilClass</code>.</td>
       <td>As in some Scheme implementations, <code>null</code> and <code>undefined</code>
@@ -189,8 +239,14 @@ layout: default
     </tr>
     <tr>
       <th scope="row">Regular Expressions</th>
-      <td></td>
-      <td></td>
+      <td>
+        <pre><code>"test" =~ /est/ # =&gt; 1 (the position of the first matching charater in the string)</code></pre>
+        See also <a href="https://rubyapi.org/2.7/o/regexp">Regexp Class Documentation</a>.
+      </td>
+      <td>
+        <pre><code>"test".match(/est/)</code></pre>
+        See also <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">Regular Expressions on MDN</a>
+      </td>
     </tr>
     <tr>
       <th scope="row">Identifiers</th>
@@ -587,7 +643,7 @@ layout: default
     <tr>
       <th scope="row">Regular Expression Matching</th>
       <td><code>=~</code>, <code>!~</code>, <code>===</code></td>
-      <td><code>=~</code>, <code>!~</code></td>
+      <td></td>
     </tr>
     <tr>
       <th scope="row">String Concatenation</th>
@@ -753,4 +809,38 @@ layout: default
 <ul>
   <li><a href="https://brendaneich.com/2008/04/popularity">https://brendaneich.com/2008/04/popularity</a></li>
   <li><a href="https://www.ruby-lang.org/en/about/">https://www.ruby-lang.org/en/about/</a></li>
+  <li><a href="https://developer.mozilla.org">https://developer.mozilla.org</a></li>
 </ul>
+
+<h2 id="notes" class="mt-4 mb-3">Notes</h2>
+
+<blockquote class="blockquote">
+  <p class="mb-0"><strong>Type coercion</strong> is the automatic or implicit conversion of values from one data type to another (such as strings to numbers).
+  Type conversion is similar to type coercion because they both convert values from one data type to another with one key
+  difference — type coercion is implicit whereas type conversion can be either implicit or explicit.</p>
+  <footer class="blockquote-footer">
+    <a href="https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion">
+      <cite title="MDN Web Docs">MDN Web Docs</cite>
+    </a>
+  </footer>
+</blockquote>
+
+<blockquote class="blockquote">
+  <p class="mb-0"><strong>Type conversion</strong> (or typecasting) means transfer of data from one data type to another. Implicit conversion happens when the compiler
+  automatically assigns data types, but the source code can also explicitly require a conversion to take place.</p>
+  <footer class="blockquote-footer">
+    <a href="https://developer.mozilla.org/en-US/docs/Glossary/Type_conversion">
+      <cite title="MDN Web Docs">MDN Web Docs</cite>
+    </a>
+  </footer>
+</blockquote>
+
+<blockquote class="blockquote">
+  <p class="mb-0"><strong>JavaScript's strict mode</strong>, introduced in ECMAScript 5, is a way to opt in to a restricted variant of JavaScript, thereby
+  implicitly opting-out of "sloppy mode". Strict mode isn't just a subset: it intentionally has different semantics from normal code.</p>
+  <footer class="blockquote-footer">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">
+      <cite title="MDN Web Docs">MDN Web Docs</cite>
+    </a>
+  </footer>
+</blockquote>
