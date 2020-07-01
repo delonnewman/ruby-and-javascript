@@ -203,12 +203,12 @@ layout: default
         var x = 3, y = 4;
         `x + y = ${x + y}` // =&gt; "x + y = 7"
         </code></pre>
-        <p>Strings are mutable (i.e. they can be changed in-place).</p>
+        <p>Strings are immutable (i.e. they cannot be changed in-place).</p>
         <pre><code>
         var name = "Toni"
         name[3] = 'y'
-        name == "Toni" // =&gt; false
-        name == "Tony" // =&gt; true
+        name == "Toni" // =&gt; true
+        name == "Tony" // =&gt; false
         </code></pre>
       </td>
     </tr>
